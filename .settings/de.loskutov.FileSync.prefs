@@ -1,0 +1,7 @@
+WARNING=DO NOT MODIFY THIS FILE IF YOU DON'T UNDERSTAND
+defaultDestination=D\:/Programming/WebContainer/apache-tomcat-8.0.23/webapps/FtsWeb/WEB-INF/
+defaultVariables=
+eclipse.preferences.version=1
+includeTeamPrivateFiles=false
+map|0=src/main/webapp|D\:/Programming/WebContainer/apache-tomcat-8.0.23/webapps/FtsWeb/WEB-INF|,|,|,
+useCurrentDateForDestinationFiles=false

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Testinssss</title>
+</head>
+<body>
+	<div th:unless="${#lists.isEmpty(allCustomer)}">
+
+		<h2>List of Customer</h2>
+
+		<table>
+			<!-- <thead>
+				<tr>
+					<th th:text="#{seedstarter.datePlanted}">Date Planted</th>
+					<th th:text="#{seedstarter.covered}">Covered</th>
+					<th th:text="#{seedstarter.type}">Type</th>
+					<th th:text="#{seedstarter.features}">Features</th>
+					<th th:text="#{seedstarter.rows}">Rows</th>
+				</tr>
+			</thead> -->
+			<tbody>
+				<!-- <tr th:each="sb : ${allSeedStarters}">
+					<td th:text="${{sb.datePlanted}}">13/01/2011</td>
+					<td th:text="${sb.covered}? #{bool.true} : #{bool.false}">yes</td>
+					<td th:text="#{${'seedstarter.type.' + sb.type}}">Wireframe</td>
+					<td
+						th:text="${#strings.arrayJoin(
+                           #messages.arrayMsg(
+                               #strings.arrayPrepend(sb.features,'seedstarter.feature.')),
+                           ', ')}">Electric
+						Heating, Turf</td>
+					<td>
+						<table>
+							<tbody>
+								<tr th:each="row,rowStat : ${sb.rows}">
+									<td th:text="${rowStat.count}">1</td>
+									<td th:text="${row.variety.name}">Thymus Thymi</td>
+									<td th:text="${row.seedsPerCell}">12</td>
+								</tr>
+							</tbody>
+						</table>
+					</td>
+				</tr> -->
+
+				<tr th:each="sb : ${allCustomer}">
+						<td th:text="${sb.id}">1</td>
+				</tr>
+				<!-- <tr th:each="row,rowStat : ${sb.rows}">
+					<td th:text="${row.account}">1</td>
+					<td th:text="${row.variety.name}">Thymus Thymi</td>
+					<td th:text="${row.seedsPerCell}">12</td>
+				</tr> -->
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>

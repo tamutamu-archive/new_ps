@@ -1,0 +1,84 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+	<div th:fragment="content">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<h1>Currency</h1>
+			<ol class="breadcrumb">
+				<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+				<li><a href="#">System Setup</a></li>
+				<li class="active">Currency</li>
+			</ol>
+		</section>
+
+		<!-- Main content -->
+		<section class="content">
+			<div class="box-body">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Currency</label> 
+							<select class="form-control select2">
+								<option selected="selected">Alabamasfdsafd</option>
+								<option>Alaska</option>
+								<option>California</option>
+								<option>Delaware</option>
+								<option>Tennessee</option>
+								<option>Texas</option>
+								<option>Washington</option>
+							</select>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Disabled</label> <select class="form-control select2" disabled="disabled"
+								style="width: 100%;">
+								<option selected="selected">Alabama</option>
+								<option>Alaska</option>
+								<option>California</option>
+								<option>Delaware</option>
+								<option>Tennessee</option>
+								<option>Texas</option>
+								<option>Washington</option>
+							</select>
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Multiple</label> <select class="form-control select2" multiple="multiple"
+								data-placeholder="Select a State" style="width: 100%;">
+								<option>Alabama</option>
+								<option>Alaska</option>
+								<option>California</option>
+								<option>Delaware</option>
+								<option>Tennessee</option>
+								<option>Texas</option>
+								<option>Washington</option>
+							</select>
+						</div>
+						<!-- /.form-group -->
+						<div class="form-group">
+							<label>Disabled Result</label> <select class="form-control select2" style="width: 100%;">
+								<option selected="selected">Alabama</option>
+								<option>Alaska</option>
+								<option disabled="disabled">California (disabled)</option>
+								<option>Delaware</option>
+								<option>Tennessee</option>
+								<option>Texas</option>
+								<option>Washington</option>
+							</select>
+						</div>
+						<!-- /.form-group -->
+					</div>
+					<!-- /.col -->
+				</div>
+				<!-- /.row -->
+			</div>
+			<!-- /.box-body -->
+		</section>
+		<!-- /.content -->
+	</div>
+</body>
+</html>
