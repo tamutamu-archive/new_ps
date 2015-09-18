@@ -112,7 +112,7 @@
 	<!-- Invalid property 'dialect' of bean class [org.apache.commons.dbcp.BasicDataSource -->
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
 		<beans:property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-		<beans:property name="url" value="jdbc:sqlserver://loplayers.com:1433;databaseName=fts;" />
+		<beans:property name="url" value="jdbc:sqlserver://192.168.2.3:1433;databaseName=fts;" />
 		<beans:property name="username" value="sa" />
 		<beans:property name="password" value="selinahebe" />
 	</beans:bean>

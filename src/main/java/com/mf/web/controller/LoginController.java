@@ -58,7 +58,7 @@ public class LoginController implements Serializable {
 			menu.add(new MenuItem("Normal Trading Hour", "1", null, "normal_trading_hour"));
 			menu.add(new MenuItem("Other Information", "1", null, "other_information"));
 			menu.add(new MenuItem("Account Setup", "0", null, "#"));
-			menu.add(new MenuItem("User List", "1", null, "accountsetup/userlist"));
+			menu.add(new MenuItem("User List", "1", null, "userlist"));
 			/*menu.add("Currency");
 			menu.add("Contract");
 			menu.add("Currency Margin");
