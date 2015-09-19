@@ -25,6 +25,27 @@ public class HomeController extends AbstractController{
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
+	@Layout(value="blank")
+	@RequestMapping(value = {"/home"}, method = RequestMethod.GET)
+	public String home(Locale locale, Map<String, Object> model,HttpServletResponse response) {
+		logger.debug("Welcome home! The client locale is {}.", locale);
+
+		/*Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+
+		String formattedDate = dateFormat.format(date);
+
+		model.addAttribute("serverTime", formattedDate );
+*/
+
+		/*
+		 * If not login then redirect to login page
+		 * else front page
+		 */
+		//Redirect to url link
+		return "forward:/login";
+	}
+
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest arg0,
 			HttpServletResponse arg1) throws Exception {
