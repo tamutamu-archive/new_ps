@@ -91,7 +91,7 @@ public class LoginController {
 
 	}
 
-	private String getPrincipal(){
+	/*private String getPrincipal(){
 		String userName = null;
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
@@ -101,7 +101,7 @@ public class LoginController {
 			userName = principal.toString();
 		}
 		return userName;
-	}
+	}*/
 
 	/*@RequestMapping("/login2")
 	public String testCaptcha(@RequestParam(value = "error", required = false) Integer errorCode, Model model, HttpServletRequest servletRequest)

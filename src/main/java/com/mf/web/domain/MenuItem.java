@@ -1,6 +1,12 @@
 package com.mf.web.domain;
 
-public class MenuItem {
+import java.io.Serializable;
+
+public class MenuItem implements Serializable {
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 	private String description;
 	private String type;
 	private String icon;
