@@ -14,19 +14,18 @@ import com.mf.web.domain.AccountExecutive;
 import com.mf.web.domain.SearchingCriteria;
 
 @Controller
-@RequestMapping(value = "/accountsetup")
+//@RequestMapping(value = "/accountsetup")
 public class AccountSetupController {
 
-	@RequestMapping(value = "userlist", method = RequestMethod.GET)
+	@RequestMapping(value = "/userlist", method = RequestMethod.GET)
 	public String viewUserList(Model model) {
 		SearchingCriteria searchingCriteria = new SearchingCriteria();
 		model.addAttribute("searchingCriteria", searchingCriteria);
-		return "accountsetup/userlist";
+		return "userlist";
 	}
 
 	@RequestMapping(value = "userlist", method = RequestMethod.POST)
 	public String viewUserList(SearchingCriteria searchingCriteria, Model model) {
-		System.out.println("getAccountFrom: " + searchingCriteria.getAccountFrom());
 		List<AccountExecutive> userlistResult = new ArrayList<AccountExecutive>();
 		AccountExecutive user = new AccountExecutive();
 		user.setName("111");
@@ -35,11 +34,15 @@ public class AccountSetupController {
 		user.setHkid("12345678");
 		user.setSalesCode("sasasaaws");
 		userlistResult.add(user);
+		user.setName(new String("222"));
 		userlistResult.add(user);
+		user.setName(new String("333"));
 		userlistResult.add(user);
+		user.setName(new String("444"));
 		userlistResult.add(user);
+		user.setName(new String("5555"));
 		userlistResult.add(user);
 		model.addAttribute("result",userlistResult);
-		return "accountsetup/userlist";
+		return "userlist";
 	}
 }

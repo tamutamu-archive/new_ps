@@ -11,7 +11,7 @@
 					<li th:each="menuitem : ${session.menu}" class="active treeview">
 						<a href="#" th:if="${menuitem.type == '0'}"><i class="fa fa-dashboard"></i> <span th:utext="${menuitem.description}" /><i class="fa fa-angle-left pull-right"></i></a>
 						<ul class="treeview-menu" th:if="${menuitem.type == '1'}">
-				    	<li><a th:href="@{${menuitem.link}}"><i class="fa fa-circle-o"></i><span th:utext="${menuitem.description}" /></a></li>
+				    	<li><a th:href="${menuitem.link}"><i class="fa fa-circle-o"></i><span th:utext="${menuitem.description}" /></a></li>
 				    </ul>
 				  </li>
 					<li class="active treeview">
