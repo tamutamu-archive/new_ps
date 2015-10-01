@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mf.web.domain.AccountExecutive;
+import com.mf.web.domain.UserAccount;
 import com.mf.web.domain.SearchingCriteria;
 
 @Controller
@@ -43,6 +44,20 @@ public class AccountSetupController {
 		user.setName(new String("5555"));
 		userlistResult.add(user);
 		model.addAttribute("result",userlistResult);
+		return "userlist";
+	}
+
+	@RequestMapping(value = "/usersetup", method = RequestMethod.GET)
+	public String viewUserSetup(Model model) {
+		UserAccount userAccount = new UserAccount();
+		model.addAttribute("userAccount", userAccount);
+		return "usersetup";
+	}
+
+	@RequestMapping(value = "/acchrcMain", method = RequestMethod.GET)
+	public String viewAccountHierarchyMaintenacne(Model model) {
+		SearchingCriteria searchingCriteria = new SearchingCriteria();
+		model.addAttribute("searchingCriteria", searchingCriteria);
 		return "userlist";
 	}
 }

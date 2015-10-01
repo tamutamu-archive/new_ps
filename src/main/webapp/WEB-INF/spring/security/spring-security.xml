@@ -1,26 +1,23 @@
-<beans:beans xmlns="http://www.springframework.org/schema/security"
-	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans:beans xmlns="http://www.springframework.org/schema/security" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/security
 	http://www.springframework.org/schema/security/spring-security.xsd">
 
 	<http auto-config="true">
-		<session-management invalid-session-url="/login?time=1">
-			<concurrency-control max-sessions="1"
-				expired-url="/login?time=1" />
+		<session-management invalid-session-url="/IndvalidSession" >
+			<concurrency-control max-sessions="20" expired-url="/login?time=1" />
 		</session-management>
-		<form-login login-page="/login" username-parameter="j_username"
-			password-parameter="j_password" default-target-url="/loginsuccess"
-			authentication-failure-url="/login?error" />
-		<logout logout-url="/logout" logout-success-url="/login?out=1"
-			delete-cookies="JSESSIONID" invalidate-session="true" />
+		<form-login login-page="/login" username-parameter="j_username" password-parameter="j_password"
+			default-target-url="/loginsuccess" authentication-failure-url="/login?error" />
+		<logout logout-url="/logout" logout-success-url="/login?out=1" delete-cookies="JSESSIONID" invalidate-session="true" />
 		<intercept-url pattern="/login" access="permitAll" />
 	</http>
 
 	<global-method-security pre-post-annotations="enabled" />
 
-<beans:bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+	<beans:bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
 		<beans:property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
 		<beans:property name="url" value="jdbc:sqlserver://192.168.2.3:1433;databaseName=fts;" />
 		<beans:property name="username" value="sa" />
@@ -29,11 +26,9 @@
 
 	<authentication-manager alias="authenticationManager">
 		<authentication-provider>
-			<!-- <password-encoder hash="sha" /> <user-service> <user name="user"
-				password="12dea96fec20593566ab75692c9949596833adc9" authorities="ROLE_USER"
+			<!-- <password-encoder hash="sha" /> <user-service> <user name="user" password="12dea96fec20593566ab75692c9949596833adc9" authorities="ROLE_USER"
 				/> </user-service> -->
-			<!-- <user-service> <user name="tomtest" password="12345678" authorities="ROLE_USER"
-				/> </user-service> -->
+			<!-- <user-service> <user name="tomtest" password="12345678" authorities="ROLE_USER" /> </user-service> -->
 			<jdbc-user-service data-source-ref="dataSource"
 				users-by-username-query="select AE as username, Password as Password, 1 as enabled from ftsAccExec where ae=?"
 				authorities-by-username-query="select AE as username, Password as Password, 'ROLE_USER' as role from ftsAccExec where ae=?" />

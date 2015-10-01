@@ -81,6 +81,7 @@ public class LoginController {
 		menu.add(new MenuItem("Other Information", "1", null, "other_information"));
 		menu.add(new MenuItem("Account Setup", "0", null, "#"));
 		menu.add(new MenuItem("User List", "1", null, "userlist"));
+		menu.add(new MenuItem("User Setup", "1", null, "usersetup"));
 
 		session.setAttribute("menu", menu);
 		return "main";
