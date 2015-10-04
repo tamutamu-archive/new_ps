@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <body>
 	<div th:fragment="content">
-		
+
 		<section class="content">
 			<div class="box box-info">
 				<div class="box-header with-border">
@@ -10,20 +10,57 @@
 				</div>
 				<!-- /.box-header -->
 				<!-- form start -->
-					<form th:id="userAccountForm" th:object="${userAccount}"
-					th:action="@{/userAccount}" class="form-horizontal" method="post">
+				<form th:id="userAccountForm" th:object="${userAccount}" th:action="@{/userAccount}"
+					class="form-horizontal" method="post">
 					<div class="box-body">
 						<div class="form-group">
 							<label for="userId" class="col-sm-2 control-label">User ID</label>
 							<div class="col-sm-10">
-								<input th:type="text" th:field="*{userId}" class="form-control" id="userId" placeholder="userId">
+								<div class="input-group">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+											Action <span class="fa fa-caret-down"></span>
+										</button>
+										<ul class="dropdown-menu">
+											<li><a href="#">Add</a></li>
+											<li><a href="#">Update</a></li>
+										</ul>
+									</div>
+									<!-- /btn-group -->
+									<input th:type="text" th:field="*{userId}" class="form-control" id="userId"
+										placeholder="userId">
+								</div>
+								<!-- /input-group -->
+								<!-- <input th:type="text" th:field="*{userId}" class="form-control" id="userId" placeholder="userId"> -->
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="manager" class="col-sm-2 control-label">Manager</label>
 							<div class="col-sm-10">
-								<input th:type="text" th:field="*{manager}" class="form-control" id="manager" placeholder="manager">
+								<input th:type="text" class="form-control" name="manager" data-provide="typeahead"
+									id="manager" placeholder="manager">
 							</div>
+						</div>
+						<div class="form-group">
+							<button type="button" class="btn btn-info pull-left" data-toggle="modal" data-target="#myModal">Open Modal</button>
+						</div>
+						<!-- Modal -->
+						<div class="modal fade" id="myModal" role="dialog">
+							<div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Modal Default</h4>
+                  </div>
+                  <div class="modal-body">
+                    <p>One fine body&hellip;</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div><!-- /.modal-content -->
+              </div><!-- /.modal-dialog -->
 						</div>
 					</div>
 					<!-- /.box-body -->
@@ -38,10 +75,26 @@
 			<!-- /.col -->
 		</section>
 		<script>
-      $(function () {
-        //Initialize Select2 Elements
-        $(".select2").select2();
-      });
+      $(function() {
+          try {
+        	  $("#userId").autocomplete({
+    	            source: function (request, response) {
+    	                $.getJSON("http://localhost:7001/web/getAccExecList", {
+    	                    term: request.term
+    	                }, response);
+    	            }
+    	        });
+
+          	  $('#manager').typeahead({        
+          	        local: ['alpha','allpha2','alpha3','bravo','charlie','delta','epsilon','gamma','zulu']
+          		});
+
+          	 $("#myModal").modal({backdrop: "static"});
+          } catch(err) {
+              alert(err);
+          }
+        	       
+	    });
     </script>
 	</div>
 </body>

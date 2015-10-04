@@ -8,8 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mf.web.dao.DataCache;
 import com.mf.web.domain.AccountExecutive;
 import com.mf.web.domain.UserAccount;
 import com.mf.web.domain.SearchingCriteria;
@@ -52,6 +54,12 @@ public class AccountSetupController {
 		UserAccount userAccount = new UserAccount();
 		model.addAttribute("userAccount", userAccount);
 		return "usersetup";
+	}
+
+	@RequestMapping(value = "/getAccExecList", method = RequestMethod.GET)
+	public @ResponseBody ArrayList<String> getAccExecList(@RequestParam("term") String name) {
+		ArrayList<String> matchName = (ArrayList<String>) DataCache.getName(name);
+		return matchName;
 	}
 
 	@RequestMapping(value = "/acchrcMain", method = RequestMethod.GET)

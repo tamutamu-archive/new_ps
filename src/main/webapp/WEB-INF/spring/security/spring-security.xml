@@ -6,7 +6,7 @@
 	http://www.springframework.org/schema/security/spring-security.xsd">
 
 	<http auto-config="true">
-		<session-management invalid-session-url="/IndvalidSession" >
+		<session-management invalid-session-url="/logout" >
 			<concurrency-control max-sessions="20" expired-url="/login?time=1" />
 		</session-management>
 		<form-login login-page="/login" username-parameter="j_username" password-parameter="j_password"

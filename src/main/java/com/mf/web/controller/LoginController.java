@@ -64,8 +64,7 @@ public class LoginController {
 		if (auth != null){
 			new SecurityContextLogoutHandler().logout(request, response, auth);
 		}
-		System.out.println("sfasf");
-		return "redirect:/login?logout";
+		return "redirect:/login";
 	}
 
 	@RequestMapping(value = "/loginsuccess", method = RequestMethod.GET)
