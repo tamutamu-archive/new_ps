@@ -70,7 +70,7 @@
 								</div>
 								<label for="birthday" class="col-sm-2 control-label">Birthday</label>
 								<div class="col-sm-4">
-									<input type="text" class="form-control" id="birthday">
+                      <input type="text" class="form-control pull-right" id="birthday">
 								</div>
 							</div>
             </div>
@@ -158,10 +158,15 @@
           	 /* $("#myModal").modal({backdrop: "static"}); */
 
         	$('#tree').treeview({data: getTree()});
+
+        	$('#birthday').daterangepicker({
+        		 singleDatePicker: true,
+        	   showDropdowns: true
+         	});
           } catch(err) {
               alert(err);
           }
-        	       
+                 
 	    });
       
       
