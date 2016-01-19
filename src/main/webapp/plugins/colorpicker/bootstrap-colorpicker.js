@@ -46,7 +46,7 @@
         //parse a string to HSB
         setColor: function(strVal) {
             strVal = strVal.toLowerCase();
-            this.value = this.stringToHSB(strVal) ||  {
+            this.value = this.stringToHSB(strVal) || true�{
                 h: 0,
                 s: 0,
                 b: 0,
@@ -218,7 +218,7 @@
             return [r, g, b, this._sanitizeNumber(a)];
         },
         toString: function(format) {
-            format = format ||  'rgba';
+            format = format || Â 'rgba';
             switch (format) {
                 case 'rgb':
                     {
@@ -352,7 +352,7 @@
             re: /^([a-z]{3,})$/,
             format: 'alias',
             parse: function(execResult) {
-                var hexval = this.colorNameToHex(execResult[0]) ||  '#000000';
+                var hexval = this.colorNameToHex(execResult[0]) || Â '#000000';
                 var match = this.stringParsers[0].re.exec(hexval),
                     values = match && this.stringParsers[0].parse.apply(this, [match]);
                 return values;
@@ -705,12 +705,12 @@
             });
         },
         updateData: function(val) {
-            val = val ||  this.color.toString(this.format);
+            val = val || Â this.color.toString(this.format);
             this.element.data('color', val);
             return val;
         },
         updateInput: function(val) {
-            val = val ||  this.color.toString(this.format);
+            val = val || Â this.color.toString(this.format);
             if (this.input !== false) {
                 this.input.prop('value', val);
             }
@@ -744,7 +744,7 @@
             return val;
         },
         updateComponent: function(val) {
-            val = val ||  this.color.toString(this.format);
+            val = val || Â this.color.toString(this.format);
             if (this.component !== false) {
                 var icn = this.component.find('i').eq(0);
                 if (icn.length > 0) {
