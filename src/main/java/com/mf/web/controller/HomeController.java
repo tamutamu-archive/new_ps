@@ -37,3 +37,4 @@ public class HomeController extends AbstractController{
 	  return principal != null ? "homeSignedIn" : "hello";
 	 }
 }
+
